@@ -6,21 +6,26 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-
+import Controller.Setting;
 
 public class Main extends Application {
+	
+	private static Stage primary = new Stage();
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/View/Setting.fxml/"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/Setting.fxml/"));
+			Parent root = loader.load();
 			Scene scene = new Scene(root);
+			Setting controller = loader.getController();
+			controller.handleLoadSettings();
 			scene.getStylesheets().add(getClass().getResource("/View/application.css").toExternalForm());
-			primaryStage.setResizable(false);
-			primaryStage.initStyle(StageStyle.UNDECORATED);
+			primary.setResizable(false);
+			primary.initStyle(StageStyle.UNDECORATED);
 			
-			primaryStage.setScene(scene);
-			primaryStage.show();
+			primary.setScene(scene);
+			primary.show();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -28,5 +33,9 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+	}
+	
+	public static Stage getStage() {
+		return primary;
 	}
 }
