@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 
 import Template.Capture;
 
-public abstract class CapturePNG extends Capture{
+public class CapturePNG extends Capture{
 	
 	public CapturePNG() {
 		try {
@@ -24,11 +24,16 @@ public abstract class CapturePNG extends Capture{
 		}
 	}
 	
-	protected void saveCapture() {
+	public void takeAndSaveCapture() {
 		Calendar now = Calendar.getInstance();
 		BufferedImage capture = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+		File file = new File(directorySaveLocation + "\\" + dateFormat.format(now.getTime()) + ".png");
+		System.out.println(file.getAbsolutePath());
 		try {
-			ImageIO.write(capture, "PNG", new File(directorySaveLocation + "\\" + dateFormat.format(now.getTime()) + ".png"));
+			if(!file.exists()) {
+				file.createNewFile();
+			}
+			ImageIO.write(capture, "PNG", file);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

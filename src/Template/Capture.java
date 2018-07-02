@@ -27,22 +27,22 @@ public abstract class Capture {
 		this.dateFormat = dateFormat;
 	}
 
-	protected abstract void saveCapture();
+	public abstract void takeAndSaveCapture();
 
 	
-	protected CaptureType getCaptureType() {
+	public CaptureType getCaptureType() {
 		return captureType;
 	}
 
-	protected void setCaptureType(CaptureType captureType) {
+	public void setCaptureType(CaptureType captureType) {
 		this.captureType = captureType;
 	}
 
-	protected String getDirectorySaveLocation() {
+	public String getDirectorySaveLocation() {
 		return directorySaveLocation;
 	}
 	
-	protected void setDirectorySaveLocation(String directorySaveLocation) {
+	public void setDirectorySaveLocation(String directorySaveLocation) {
 		this.directorySaveLocation = directorySaveLocation;
 	}
 }

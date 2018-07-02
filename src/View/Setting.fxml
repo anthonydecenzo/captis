@@ -33,6 +33,7 @@
                </toggleGroup></JFXRadioButton>
             <JFXRadioButton fx:id="radioJPEG" layoutX="435.0" layoutY="73.0" style="-jfx-selected-color: #bfc100;" text="JPEG" textFill="WHITE" toggleGroup="$fileType" />
             <Label layoutX="436.0" layoutY="40.0" text="File Type:" textFill="WHITE" />
+            <JFXButton layoutX="59.0" layoutY="28.0" onAction="#handleCapture" text="Capture" textFill="WHITE" />
          </children>
       </AnchorPane>
       <JFXButton layoutX="374.0" layoutY="14.0" />

@@ -7,6 +7,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
+import Capture.CapturePNG;
 import Handler.DataHandler;
 import Handler.DirectoryHandler;
 import Property.AppSetting;
@@ -37,6 +38,12 @@ public class Setting {
 			alert.showAndWait();
 		}
 		
+	}
+	
+	public void handleCapture() {
+		CapturePNG p = new CapturePNG();
+		p.setDirectorySaveLocation(txtDirectoryLocation.getText());
+		p.takeAndSaveCapture();
 	}
 	
 	public void handleMinimize() {

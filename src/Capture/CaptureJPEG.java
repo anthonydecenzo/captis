@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
 
 import Template.Capture;
 
-public abstract class CaptureJPEG extends Capture{
+public class CaptureJPEG extends Capture{
 	
 	public CaptureJPEG() {
 		try {
@@ -24,7 +24,7 @@ public abstract class CaptureJPEG extends Capture{
 		}
 	}
 	
-	protected void saveCapture() {
+	public void takeAndSaveCapture() {
 		Calendar now = Calendar.getInstance();
 		BufferedImage capture = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 		try {

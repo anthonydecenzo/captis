@@ -1,5 +1,7 @@
 package Handler;
 
+import java.io.File;
+
 import Controller.Setting;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
@@ -20,7 +22,14 @@ public class DirectoryHandler {
 	}
 	
 	public static String chooseSaveDirectory() {
-		String directory = chooser.showDialog(window).getAbsolutePath();
+		
+		String directory = null;
+		try {
+			directory = chooser.showDialog(window).getAbsolutePath();
+		} catch (NullPointerException e) {
+			
+		}
+		 
 		
 		return directory;
 	}
